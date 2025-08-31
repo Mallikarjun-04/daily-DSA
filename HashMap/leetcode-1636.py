@@ -39,7 +39,7 @@ def frequencySort(nums):
         dik= {key: diki[key] for key in sorted(diki,reverse=True)}
         #print(dik)
         dici = dict(sorted(dik.items(), key=lambda item: item[1]))
-        #print(dici)
+        #print(dici)..
         ans=[]
         for i in dici:
             for j in range(dici[i]):
