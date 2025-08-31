@@ -3,7 +3,6 @@
 
 Given a 0-indexed integer array nums of length n and an integer target, return the number of pairs (i, j) where 0 <= i < j < n and nums[i] + nums[j] < target.
  
-
 Example 1:
 
 Input: nums = [-1,1,2,3,1], target = 2
