@@ -36,7 +36,6 @@ def frequencySort(nums):
                 diki[i]=1
             else:
                 diki[i]+=1
-        #print(diki)
         dik= {key: diki[key] for key in sorted(diki,reverse=True)}
         #print(dik)
         dici = dict(sorted(dik.items(), key=lambda item: item[1]))
