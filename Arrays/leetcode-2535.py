@@ -42,3 +42,4 @@ def differenceOfSum(nums):
         return abs(ele_sum-c)
 nums=list(map(int,input().split()))
 print(differenceOfSum(nums))
+]
