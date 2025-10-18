@@ -39,19 +39,66 @@ n == code.length
 -(n - 1) <= k <= n - 1
 '''
 
+'''
+Important test cases:
+
+case1:
+code = [10,5,7,7,3,2,10,3,6,9,1,6]
+k = -4
+
+case2:
+code = [10,8,7,7,5,3,9,6]
+k = 4
+'''
+
 def decrypt(code,k):
         
-        #brute-force-approach
+#brute-force-approach
         
+#         ans=code+code
+#         for i in range(len(code)):
+#             if k>0:
+#                 code[i]=sum(ans[(i+1):(i+k+1)])
+#             elif k<0:
+#                 code[i]=sum(ans[(i+len(code))+k:(i+len(code))])
+#             elif k==0:
+#                 code[i]=0
+#         return (code)
+# code=list(map(int,input().split()))
+# k=int(input())
+# print(decrypt(code,k))
+
+
+    #sliding-window-approach
         ans=code+code
-        for i in range(len(code)):
-            if k>0:
-                code[i]=sum(ans[(i+1):(i+k+1)])
-            elif k<0:
-                code[i]=sum(ans[(i+len(code))+k:(i+len(code))])
-            elif k==0:
-                code[i]=0
-        return (code)
+        temp=0
+        res=[]
+        if k==0:
+            return [0]*len(code)
+        elif k>0:
+            l=0
+            for r in range(len(ans)-1):
+                temp+=ans[r]
+                if r-l==k:
+                    temp-=ans[l]
+                    res.append(temp)
+                    l+=1
+                    if r==len(code)+k-1:
+                        break
+            return res
+        elif k<0:
+            l=len(ans)-1
+            for r in range(len(ans)-1,-1,-1):
+                temp+=ans[r]
+                if r-l==k:
+                    temp-=ans[l]
+                    res.append(temp)
+                    l-=1
+                    if r==len(code)+k:
+                        break
+                        
+            res.reverse()
+            return res
 code=list(map(int,input().split()))
 k=int(input())
 print(decrypt(code,k))
